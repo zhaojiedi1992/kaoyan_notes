@@ -1,20 +1,12 @@
-.. kaoyan_notes documentation master file, created by
-   sphinx-quickstart on Fri Apr 21 16:26:24 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to kaoyan_notes's documentation!
-========================================
+考研笔记——赵杰迪
+===============================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 考研
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   01-整体/index
+   02-数学/index
+   03-计算机/index
+   04-英语/index
+   05-政治/index

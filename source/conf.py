@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'kaoyan_notes'
+project = '考研笔记_赵杰迪'
 copyright = '2023, 1072892917@qq.com'
 author = '1072892917@qq.com'
 release = 'v1.0'
