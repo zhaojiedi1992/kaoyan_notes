@@ -17,7 +17,9 @@ release = 'v1.0'
 extensions = []
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = [
+     'sphinx.ext.mathjax',
+]
 
 language = 'zh_cn'
 
