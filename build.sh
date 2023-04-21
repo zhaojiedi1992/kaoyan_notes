@@ -1,4 +1,4 @@
-source ./venv/bin/active
+source ./venv/bin/activate
 git pull 
 pip install -r requirements.txt
 make clean && make html 
