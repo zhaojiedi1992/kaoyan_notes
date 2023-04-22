@@ -29,5 +29,14 @@ language = 'zh_cn'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/s4defs-roles.css',
+    'css/hacks.css',
+    ]
 
 
+
+rst_prolog = """
+ .. include:: <s5defs.txt>
+
+ """
