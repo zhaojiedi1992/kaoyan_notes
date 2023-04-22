@@ -18,7 +18,7 @@ extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = [
-     'sphinx.ext.mathjax',
+     'sphinx.ext.imgmath',
 ]
 
 language = 'zh_cn'
@@ -28,3 +28,6 @@ language = 'zh_cn'
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+
+
