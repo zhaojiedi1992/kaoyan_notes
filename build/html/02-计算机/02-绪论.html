@@ -50,7 +50,21 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">计算机</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%BB%80%E4%B9%88.html">数据结构学什么</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">绪论</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">什么是数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">数据结构的基本概念</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">什么是数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">数据的三要素</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">数据的运算</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">物理结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">数据类型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">算法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">什么是算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">算法的特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">好算法的特质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">算法效率的度量</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -89,9 +103,100 @@
 <section id="id1">
 <h1>绪论<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>什么是数据<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
-<p>数据是 <span class="red">信息的载体</span> ，是描述客观事物属性的数、字符及所有能输入到计算中，并被计算机程序识别和处理
+<h2>数据结构的基本概念<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<section id="id3">
+<h3>什么是数据<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
+<p>数据是 <span class="red">信息的载体</span> ，是描述客观事物属性的数、字符及所有能输入到计算中，并 <span class="red">被计算机程序识别和处理</span>
 的符号的集合，数据是计算机程序加工的原料。</p>
+<p><span class="red">数据元素</span>，通过作为一个整体进行考虑和处理。</p>
+<p>一个数据元素可以由若干:red:<span class="incremental">数据项组成</span>，数据项是构成数据元素的不可分割的最小单位</p>
+<p>数据对象是具有 :red:<a href="#id4"><span class="problematic" id="id5">`</span></a>相同性质`的数据元素的集合，是数据的一个子集。</p>
+<p>数据结构是相互之间存在一种或多种特定:red:<a href="#id6"><span class="problematic" id="id7">`</span></a>关系`的数据元素的集合</p>
+</section>
+<section id="id8">
+<h3>数据的三要素<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
+<img alt="../_images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0.png" src="../_images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0.png" />
+<ul class="simple">
+<li><p>集合结构： 数据元素是无关系的</p></li>
+<li><p>线性结构： 数据元素是一对一的关系。</p></li>
+<li><p>树形结构： 数据元素是一对多的关系。</p></li>
+<li><p>图结构： 数据元素是多对多的关系</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>数据的运算<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
+<p>针对某种逻辑结构，结合实际需求，定义:red:<span class="incremental">基本运算</span></p>
+</section>
+<section id="id10">
+<h3>物理结构<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
+<p>数据的物理结构就是存储结构，就是如何用计算机表示数据的逻辑关系</p>
+<ul class="simple">
+<li><p>顺序存储： 逻辑顺序相邻的元素存储在物理上相邻位置。</p></li>
+<li><p>链式存储： 逻辑上相邻的元素在存储物理上可以不相邻。</p></li>
+<li><p>索引存储： 存储元素信息的基础上，额外建立附加的索引表。</p></li>
+<li><p>散列存储： 根据元素的关键字直接计算出该元素的存储地址。</p></li>
+</ul>
+<p>若采用顺序存储，各个元素在物理上必须是连续的， 若采用非顺序存储，在物理上是可以离线的。</p>
+<p>数据的存储结构会影响分配的方便程度和对数据的运算速度。</p>
+</section>
+<section id="id11">
+<h3>数据类型<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
+<p>数据类型是一个*值的集合*和定义在此集合上的*一组操作*的总称。</p>
+<ul class="simple">
+<li><p>原子类型</p></li>
+<li><p>结构类型</p></li>
+</ul>
+<p>抽象数据类型ADT是抽象数据*组织*及与之相关的*操作*。</p>
+</section>
+</section>
+<section id="id12">
+<h2>算法<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h2>
+<section id="id13">
+<h3>什么是算法<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
+<p><span class="incremental">程序 = 程序数据 + 算法</span></p>
+<p>算法是对特定问题求解:red:<span class="incremental">步骤的一种描述</span>，它是指令的有序序列，其中每条指令表示一个或多个操作。</p>
+</section>
+<section id="id14">
+<h3>算法的特性<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p>有穷性： 一个算法必须总在执行*有穷步数*之后结束，每一步*有穷时间*内完成。</p></li>
+<li><p>确定性： 算法指令明确，<em>相同的输入*只能得到*相同的输出</em>。</p></li>
+<li><p>可行性： 算法描述的操作，都可以通过已经实现的基本预算执行有限次。</p></li>
+<li><p>输入： 一个算法有`&gt;=0`个输入，</p></li>
+<li><p>输出： <a href="#id15"><span class="problematic" id="id16">`</span></a>&gt;=1`个输出。</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>好算法的特质<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p>正确性： 正确无误的</p></li>
+<li><p>可读性： 帮助人理解</p></li>
+<li><p>健壮性： 非法数据，能正确处理，不会产生莫名其妙的输出结果</p></li>
+<li><p>高效率： 时间少</p></li>
+<li><p>低存储： 存储占用少</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>算法效率的度量<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
+<section id="id19">
+<h4>如何评估算法时间开销<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p>事后统计：</p></li>
+<li><p>事前预估： 时间开销Tn与问题规模n的关系</p></li>
+</ul>
+<p>常见复杂度对比</p>
+<img alt="../_images/on.png" src="../_images/on.png" />
+<p><span class="incremental">尝对蜜汁鸡</span></p>
+<ul class="simple">
+<li><p>最坏时间复杂度： 最坏情况下，算法的时间复杂度。</p></li>
+<li><p>平均时间复杂度： 所有输入均等概率的情况下，算法期望运行时间。</p></li>
+</ul>
+</section>
+<section id="id20">
+<h4>如何评估算法空间开销<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h4>
+<p>空间开销与问题规模n的关系。</p>
+</section>
+</section>
 </section>
 </section>
 
