@@ -40,9 +40,6 @@ bool InitList(LinkList &L) {
 }
 // 判断是否为空
 bool Empty(LinkList L){
-    if (L==NULL){
-        return true ;
-    }
     if (L->next ==NULL){
         return true ; 
     }
@@ -60,6 +57,7 @@ ElemType GetElem(LinkList L, int idx){
     }
     if (cur ==NULL){
         return -1 ; 
+    }
     }
     return cur->data;
     
@@ -80,11 +78,17 @@ int LocateElem(LinkList L, ElemType val){
 }
 // 插入
 bool ListInsert(LinkList &L, int idx , int val){
+    if( idx <1){
+        return false;
+    }
     LinkList  cur = L ;
-    int cnt = 1 ;
-    while (cnt<idx){
+    int cnt = 0 ;
+    while (cur && cnt<idx-1){
         cnt+=1;
         cur = cur->next;
+    }
+    if( cur == NULL){
+        return false; 
     }
     LNode *node = (LNode*) malloc(sizeof(LNode));
     if (node == NULL){
@@ -95,23 +99,26 @@ bool ListInsert(LinkList &L, int idx , int val){
 
     node->next = cur->next ;
     cur->next = node ;
-    return true ;
+    return  true ;
 }
 // 删除
 //删除
-bool ListDelete(LinkList &L, int idx, int &e) {
-    LinkList  cur = L ;
-    int cnt = 1 ;
-    while (cur &&  cnt<idx){
+bool ListDelete(LinkList &L, int i, int &e) {
+    LinkList  p = L ;
+    int cnt = 0 ;
+    while (p &&  cnt<i-1){
         cnt+=1;
-        cur = cur->next;
+        p = p->next;
     }
-    if (cur->next     == NULL){
+    if (p== NULL){
         return false ;
     }
-    e = cur->next->data ;
-    LNode *node  = cur->next ;
-    cur->next = cur->next->next;
+    if (p->next == NULL){
+        return false;
+    }
+    LNode *q = p->next;
+    e = q->data;
+    p->next = q->next;
     free(node) ;
     return true ;
 }
@@ -138,29 +145,60 @@ bool InsertPriorNode(LNode *p, int e){
     if (p == NULL){
         return false;
     }
-    LNode *node = (LNode *) malloc(sizeof(LNode)) ;
-    if (node == NULL){
+    LNode *s = (LNode *) malloc(sizeof(LNode)) ;
+    if (s == NULL){
         return false;
     }
-    node->data = e ;
-    node->next = p->next;
-    p->next = node ;
+    s->next = p->next ; 
+    p->next =s ; 
+
+    s->data =p->data ; 
+    p->data =e ; 
     return true ;
 }
 bool InsertNextNode(LNode *p, int e) {
     if (p == NULL){
         return false;
     }
-    LNode *node = (LNode *) malloc(sizeof(LNode)) ;
-    if (node == NULL){
+    LNode *s = (LNode *) malloc(sizeof(LNode)) ;
+    if (s == NULL){
         return false;
     }
-    node->next = p->next ;
-    p->next = node ;
-    node->data = p->data;
-    p->data = e ;
+    s->data = e ; 
+    s->next = p->next ;
+    p->next = s ;
     return true ;
-    
+}
+
+LinkList List_HeadInsert(LinkList &L){
+    int x ; 
+    LNode *s ; 
+    L = (LinkList)malloc(sizeof(LNode));
+    L->next = NULL;
+    scanf("%d",x);
+    while (x !=9999){
+        s = (LNode*)malloc(sizeof(LNode));
+        s->data =x ; 
+        s->next = L->next ; 
+        L->next = s ; 
+       scanf("%d",x);
+    }
+    return L ; 
+}
+LinkList List_TailInsert(LinkList &L){
+    int x ; 
+    LNode *r , *s; 
+    L = (LinkList)malloc(sizeof(LNode));
+    r = L ; 
+    scanf("%d",x) ; 
+    while(x!=9999){
+        s = (LNode*)malloc(sizeof(LNode)); 
+        s ->data = x ; 
+        r->next = s ; 
+        r =s ; 
+    }
+    r->next = NULL;
+    return L ; 
 }
 
 void Test_LinkList() {

@@ -17,7 +17,7 @@ int GetElem(SqList L, int idx) ;
 // 查找特定值的index
 int LocateElem(SqList L, int val) ;
 // 插入
-bool ListInsert(SqList &l, int idx , int val);
+bool ListInsert(SqList &L, int idx , int val);
 // 删除
 //删除
 bool ListDelete(SqList &L, int idx, int &e) ;
@@ -25,7 +25,7 @@ bool ListDelete(SqList &L, int idx, int &e) ;
 void InitList(SqList &L) {
     for (int i=0; i<MaxSize; i++){
         L.data[i] =0;
-    }
+    }  
     L.length = 0 ;
 }
 
