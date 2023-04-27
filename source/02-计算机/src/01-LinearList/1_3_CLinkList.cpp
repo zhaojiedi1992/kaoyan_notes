@@ -28,3 +28,14 @@ bool Empty(CLinkList L){
     }
     return false; 
 }
+
+
+bool IsTail(CLinkList L,CNode *p){
+    if (p==NULL){
+        return false;
+    }
+    if (p->next==L){
+        return true;
+    }
+    return false;
+}

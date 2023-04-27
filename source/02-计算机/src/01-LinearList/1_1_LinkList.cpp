@@ -16,9 +16,9 @@ bool InitList(LinkList &L) ;
 bool Empty(LinkList L);                              
 // 获取长度
 // 获取特定index 的值
-ElemType GetElem(LinkList L, int idx) ;
+LNode* GetElem(LinkList L, int i) ;
 // 查找特定值的index
-int LocateElem(LinkList L, ElemType val) ;
+LNode* LocateElem(LinkList L, ElemType val) ;
 // 插入
 bool ListInsert(LinkList &l, int idx , int val);
 // 删除
@@ -47,79 +47,52 @@ bool Empty(LinkList L){
 }                              
 // 获取长度
 // 获取特定index 的值
-ElemType GetElem(LinkList L, int idx){
-    LinkList cur = L ;
-    int cnt =0 ;
-    while (cur && cnt <idx)
+LNode* GetElem(LinkList L, int i){
+    if (i<=0){
+        return NULL;
+    }
+    LinkList p = L ;
+    int j =0 ;
+    while (p && j <i)
     {
-       cur=cur->next;
-       cnt+=1;
+        p=p->next;
+       j+=1;
     }
-    if (cur ==NULL){
-        return -1 ; 
-    }
-    }
-    return cur->data;
+    return p ;
     
 }
 // 查找特定值的index
-int LocateElem(LinkList L, ElemType val){
-    LinkList cur = L ; 
-    int idx =0 ; 
-    while (cur && cur->data != val){
-            cur=cur->next; 
-            idx +=1;
+LNode* LocateElem(LinkList L, ElemType val){
+    LinkList p = L->next ;
+    while (p!=NULL && p->data != val){
+            p=p->next;
     }
-    if (cur == NULL){
-        return 0;
-    }
-    return idx ;
+    return p ;
 
 }
 // 插入
 bool ListInsert(LinkList &L, int idx , int val){
-    if( idx <1){
-        return false;
+    LNode *p = GetElem(L,idx-1);
+    if (p==NULL){
+      return false;
     }
-    LinkList  cur = L ;
-    int cnt = 0 ;
-    while (cur && cnt<idx-1){
-        cnt+=1;
-        cur = cur->next;
-    }
-    if( cur == NULL){
-        return false; 
-    }
-    LNode *node = (LNode*) malloc(sizeof(LNode));
-    if (node == NULL){
-        return false;
-    }
-    node->next = NULL;
-    node->data = val ;
 
-    node->next = cur->next ;
-    cur->next = node ;
-    return  true ;
+    return InsertNextNode(p,val) ;
 }
 // 删除
 //删除
 bool ListDelete(LinkList &L, int i, int &e) {
-    LinkList  p = L ;
-    int cnt = 0 ;
-    while (p &&  cnt<i-1){
-        cnt+=1;
-        p = p->next;
+    LNode *p = GetElem(L,i-1);
+    if (p==NULL){
+        return false;
     }
-    if (p== NULL){
-        return false ;
-    }
-    if (p->next == NULL){
+    if (p->next ==NULL){
         return false;
     }
     LNode *q = p->next;
     e = q->data;
     p->next = q->next;
-    free(node) ;
+    free(q) ;
     return true ;
 }
 int ListLen(LinkList L){
@@ -189,13 +162,19 @@ LinkList List_TailInsert(LinkList &L){
     int x ; 
     LNode *r , *s; 
     L = (LinkList)malloc(sizeof(LNode));
+    L->next = NULL;
     r = L ; 
-    scanf("%d",x) ; 
+    scanf("%d",&x) ;
     while(x!=9999){
-        s = (LNode*)malloc(sizeof(LNode)); 
+        s = (LNode*)malloc(sizeof(LNode));
+        if (s==NULL){
+            //destroy
+            return NULL;
+        }
         s ->data = x ; 
         r->next = s ; 
-        r =s ; 
+        r =s ;
+        scanf("%d",&x) ;
     }
     r->next = NULL;
     return L ; 
@@ -248,6 +227,8 @@ void Test_LinkList() {
 
     PrintList(L);
 
+    List_TailInsert(L);
+    PrintList(L);
 
 }
 

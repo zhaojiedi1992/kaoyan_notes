@@ -8,4 +8,13 @@ typedef struct
 {
    ElemType data ; 
    int  next ; 
-}CDLinkList[MaxSize];
+}SLinkList[MaxSize];
+
+bool InitSlinkList(SLinkList L){
+    for (int i=0;i<MaxSize;i++){
+        L[i].next = -2;
+    }
+    L->next =-1 ;
+    return true ;
+}
+
