@@ -96,7 +96,7 @@ void TestQueue() {
 }
 /**测试模块**/
 
-int main() {
+int main04() {
     TestQueue();
     return 0;
 }

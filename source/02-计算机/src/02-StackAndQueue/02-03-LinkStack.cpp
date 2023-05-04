@@ -122,6 +122,6 @@ int Test(){
 }
 
 
-int main(){
+int main03(){
     Test();
 }

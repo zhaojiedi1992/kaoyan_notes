@@ -165,6 +165,6 @@ int Test(){
 }
 
 
-int main(){
+int main02(){
     Test();
 }

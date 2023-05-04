@@ -10,7 +10,7 @@ typedef struct{
 }SqStack;
 
 bool InitStack(SqStack &S);
-bool DestoryStack(SqStack &S);
+bool DestroyStack(SqStack &S);
 bool StackEmpty(SqStack S);
 bool StackLen(SqStack S);
 bool Push(SqStack &S, ElemType x);
@@ -19,9 +19,11 @@ bool GetTop(SqStack S, int &x);
 
 bool InitStack(SqStack &S){
    S.top = -1 ;
+   return true;
 }
-bool DestoryStack(SqStack &S){
+bool DestroyStack(SqStack &S){
     S.top =-1 ;
+    return true ;
 }
 bool StackEmpty(SqStack S){
     if (S.top == -1){
@@ -44,6 +46,7 @@ bool Push(SqStack &S, ElemType x){
     }
     S.data[S.top+1] = x ;
     S.top +=1;
+    return true;
 }
 bool Pop(SqStack &S, ElemType &x){
     if (S.top ==-1){
@@ -99,6 +102,6 @@ int Test(){
 }
 
 
-int main(){
+int main01(){
     Test();
 }
